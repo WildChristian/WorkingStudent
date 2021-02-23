@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.dashboard.DashboardFragment">
+
+    <TextView
+        android:id="@+id/zeit_anzeige2"
+        android:layout_width="375dp"
+        android:layout_height="52dp"
+        android:text="Wähle den Zeitraum:"
+        android:textAlignment="center"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toTopOf="@+id/aktueller_monat"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/aktueller_monat"
+        android:layout_width="101dp"
+        android:layout_height="69dp"
+        android:text="Monat aktuell"
+        app:layout_constraintBottom_toTopOf="@+id/textview_summe"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/dreißig_tage_button"
+        app:layout_constraintTop_toBottomOf="@+id/zeit_anzeige2" />
+
+    <Button
+        android:id="@+id/sieben_tage_button"
+        android:layout_width="101dp"
+        android:layout_height="69dp"
+        android:text="7 Tage"
+        app:layout_constraintBottom_toTopOf="@+id/textview_summe"
+        app:layout_constraintEnd_toStartOf="@+id/dreißig_tage_button"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/zeit_anzeige2" />
+
+    <Button
+        android:id="@+id/dreißig_tage_button"
+        android:layout_width="101dp"
+        android:layout_height="69dp"
+        android:text="30 Tage"
+        app:layout_constraintBottom_toTopOf="@+id/textview_summe"
+        app:layout_constraintEnd_toStartOf="@+id/aktueller_monat"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/sieben_tage_button"
+        app:layout_constraintTop_toBottomOf="@+id/zeit_anzeige2" />
+
+    <TextView
+        android:id="@+id/textview_summe"
+        android:layout_width="375dp"
+        android:layout_height="52dp"
+        android:text="Summe:  0€"
+        android:textAlignment="center"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toTopOf="@+id/listview_summe"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/aktueller_monat" />
+
+    <ListView
+        android:id="@+id/listview_summe"
+        android:layout_width="413dp"
+        android:layout_height="528dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textview_summe" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
