@@ -11,7 +11,9 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-public class MainActivity extends AppCompatActivity {
+import java.io.Serializable;
+
+public class MainActivity extends AppCompatActivity implements Serializable {
 
     public SQLiteDatabase getDb() {
         return db;
@@ -21,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         this.db = db;
     }
 
-    SQLiteDatabase db;
+    public static SQLiteDatabase db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

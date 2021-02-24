@@ -1,11 +1,13 @@
 package com.example.workingstudent.ui.home;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.os.Handler;
 
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,6 +25,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.workingstudent.MainActivity;
 import com.example.workingstudent.R;
+import com.example.workingstudent.ui.edittime.editTime;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -91,6 +94,18 @@ public class HomeFragment extends Fragment {
 
 
 
+    WorkDay merkeWorkDay;
+
+    public void setWorkdays(ArrayList<WorkDay> workdays) {
+        this.workdays = workdays;
+    }
+
+    ArrayList<WorkDay> workdays;
+
+    public WorkDay getMerkeWorkDay() {
+        return merkeWorkDay;
+    }
+
     public void addWorkTime(){
 
         DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
@@ -114,9 +129,9 @@ public class HomeFragment extends Fragment {
 
         Cursor c = myDb.rawQuery("SELECT * FROM times",null);
 
-        ArrayList<WorkDay> workdays = new ArrayList<WorkDay>();
+        workdays = new ArrayList<WorkDay>();
 
-
+        int working_id = c.getColumnIndex("working_id");
         int workingtime_ = c.getColumnIndex("m_workingTime");
         int breakTime_ = c.getColumnIndex("m_breakTime");
         int date_ = c.getColumnIndex("m_date");
@@ -128,16 +143,12 @@ public class HomeFragment extends Fragment {
         System.out.println(c.getString(date_));
 
         while(c.moveToNext()){
-            workdays.add(new WorkDay(Integer.parseInt(c.getString(workingtime_)),Integer.parseInt(c.getString(breakTime_)),c.getString(date_), c.getString(notizen_), Integer.parseInt(c.getString(lohn_))));
+            workdays.add(new WorkDay(c.getInt(working_id),Integer.parseInt(c.getString(workingtime_)),Integer.parseInt(c.getString(breakTime_)),c.getString(date_), c.getString(notizen_), Integer.parseInt(c.getString(lohn_))));
         }
 
         c.close();
-        for(int i = 0 ; i < workdays.size();++i){
-            listForView.add("Deine Arbeitszeit betrug: " + workdays.get(i).getM_workingTime() + " : " + workdays.get(i).getM_breakTime() + "\n" +  workdays.get(i).getM_date() + "\n" +  workdays.get(i).getM_notizen());
-        }
 
-
-        MyListAdapter adapter=new MyListAdapter(getActivity(), listForView);
+        MyListAdapter adapter=new MyListAdapter(getActivity(), workdays);
         listView.setAdapter(adapter);
 
 
@@ -318,9 +329,15 @@ public class HomeFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
                 try{
-                    Log.i("adsa",listForView.get(position));
-                }catch(Exception e){
+                    merkeWorkDay = workdays.get(position);
+                    Intent myIntent = new Intent(getContext(), editTime.class);
 
+                    // getContext().startActivity(myIntent);
+
+                    myIntent.putExtra("Editing",  merkeWorkDay);
+                    startActivity(myIntent);
+                }catch(Exception e){
+                    Log.i("e",e.toString());
                 }
 
 

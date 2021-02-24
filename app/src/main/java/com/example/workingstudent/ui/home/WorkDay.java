@@ -1,6 +1,11 @@
 package com.example.workingstudent.ui.home;
 
-public class WorkDay {
+import java.io.Serializable;
+
+public class WorkDay implements Serializable {
+
+
+    private int id;
     private int m_workingTime;
     private int m_breakTime;
     private String m_date;
@@ -8,7 +13,8 @@ public class WorkDay {
     private String m_notizen;
 
 
-    public WorkDay(int m_workingTime, int m_breakTime, String m_date, String m_notizen, int m_zuschlag) {
+    public WorkDay(int id, int m_workingTime, int m_breakTime, String m_date, String m_notizen, int m_zuschlag) {
+        this.id = id;
         this.m_workingTime = m_workingTime;
         this.m_breakTime = m_breakTime;
         this.m_date = m_date;
@@ -48,11 +54,21 @@ public class WorkDay {
         this.m_notizen = m_notizen;
     }
 
-    public int getM_zuschlag() {
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getM_Lohn() {
         return m_Lohn;
     }
 
-    public void setM_zuschlag(int m_zuschlag) {
-        this.m_Lohn = m_zuschlag;
+    public void setM_Lohn(int m_Lohn) {
+        this.m_Lohn = m_Lohn;
     }
+
+
 }

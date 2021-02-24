@@ -17,10 +17,10 @@ import java.util.ArrayList;
 public class MyListAdapter extends BaseAdapter {
 
     private final Activity context;
-    private final ArrayList<String> maincontext;
+    private final ArrayList<WorkDay> maincontext;
 
 
-    public MyListAdapter(Activity context, ArrayList<String> maincontext) {
+    public MyListAdapter(Activity context, ArrayList<WorkDay> maincontext) {
         super();
         // TODO Auto-generated constructor stub
 
@@ -49,11 +49,18 @@ public class MyListAdapter extends BaseAdapter {
         LayoutInflater inflater=context.getLayoutInflater();
         View rowView=inflater.inflate(R.layout.listdesign, null,true);
 
-        TextView titleText = (TextView) rowView.findViewById(R.id.title);
-        ImageView imageView = (ImageView) rowView.findViewById(R.id.icon);
+        TextView datumText = (TextView) rowView.findViewById(R.id.datum);
+        TextView stundenText = (TextView) rowView.findViewById(R.id.stunden);
+        TextView verdienstText = (TextView) rowView.findViewById(R.id.verdienst);
 
         Log.i("","getview wurde aufgerufen");
-        titleText.setText(maincontext.get(position));
+        datumText.setText("Datum: " + maincontext.get(position).getM_date());
+
+        //Arbeitsstunden ausrechnen
+
+        double Stunden = (maincontext.get(position).getM_workingTime()/3600);
+        stundenText.setText("Arbeitszeit: " + Stunden + " Stunden");
+        verdienstText.setText("Verdient:" + Stunden * maincontext.get(position).getM_Lohn() + "€");
 
         return rowView;
     };

@@ -49,8 +49,9 @@ public class DashboardFragment extends Fragment {
         String newDate = sdf.format(cal.getTime());
 
         try{
-            Cursor c = myDb.rawQuery("SELECT * FROM times where m_date > '"+newDate+"' ",null);
+            Cursor c = myDb.rawQuery("SELECT * FROM times where m_date > '"+ newDate +"' ",null);
 
+            int working_id = c.getColumnIndex("working_id");
             int workingtime_ = c.getColumnIndex("m_workingTime");
             int breakTime_ = c.getColumnIndex("m_breakTime");
             int date_ = c.getColumnIndex("m_date");
@@ -64,7 +65,7 @@ public class DashboardFragment extends Fragment {
             ArrayList<WorkDay> workdays = new ArrayList<WorkDay>();
             ArrayList<String> summenliste = new ArrayList<String>() ;
             while(c.moveToNext()){
-                workdays.add(new WorkDay(Integer.parseInt(c.getString(workingtime_)),Integer.parseInt(c.getString(breakTime_)),c.getString(date_), c.getString(notizen_), Integer.parseInt(c.getString(lohn_))));
+                workdays.add(new WorkDay(c.getInt(working_id),Integer.parseInt(c.getString(workingtime_)),Integer.parseInt(c.getString(breakTime_)),c.getString(date_), c.getString(notizen_), Integer.parseInt(c.getString(lohn_))));
             }
 
             c.close();

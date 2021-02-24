@@ -5,12 +5,12 @@
     android:orientation="horizontal" >
 
     <LinearLayout
-        android:layout_width="242dp"
-        android:layout_height="62dp"
+        android:layout_width="223dp"
+        android:layout_height="83dp"
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/title"
+            android:id="@+id/datum"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
@@ -23,6 +23,13 @@
 
         <TextView
             android:id="@+id/stunden"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/verdienst"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"

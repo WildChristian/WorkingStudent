@@ -10,114 +10,184 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/textView10"
-            android:layout_width="235dp"
-            android:layout_height="49dp"
-            android:text="Stundenlohn"
-            app:layout_constraintEnd_toStartOf="@+id/editTextTextPersonName4"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="341dp" />
-
         <EditText
-            android:id="@+id/editTextTextPersonName4"
-            android:layout_width="120dp"
-            android:layout_height="51dp"
+            android:id="@+id/verdienst_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
             android:ems="10"
             android:inputType="textPersonName"
             android:text="Name"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/textView10"
-            tools:layout_editor_absoluteY="341dp" />
+            app:layout_constraintStart_toEndOf="@+id/pausenzeit"
+            app:layout_constraintTop_toBottomOf="@+id/pausenzeit_edit" />
+
+        <EditText
+            android:id="@+id/pausenzeit_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.535"
+            app:layout_constraintStart_toEndOf="@+id/Pausenzeit"
+            app:layout_constraintTop_toBottomOf="@+id/arbeitszeit_edit" />
+
+        <TextView
+            android:id="@+id/pausenzeit2"
+            android:layout_width="161dp"
+            android:layout_height="46dp"
+
+            android:layout_marginStart="14dp"
+            android:layout_marginEnd="236dp"
+            android:text="Kommentar:"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toTopOf="@+id/kommentar_edit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/pausenzeit"
+            android:layout_width="159dp"
+            android:layout_height="47dp"
+
+            android:text="Verdienst:"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toTopOf="@+id/pausenzeit2"
+            app:layout_constraintEnd_toStartOf="@+id/verdienst_edit"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Pausenzeit" />
+
+        <TextView
+            android:id="@+id/Pausenzeit"
+            android:layout_width="161dp"
+            android:layout_height="46dp"
+
+            android:text="Pausenzeit:"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toTopOf="@+id/pausenzeit"
+            app:layout_constraintEnd_toStartOf="@+id/pausenzeit_edit"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
         <TextView
             android:id="@+id/textView9"
-            android:layout_width="235dp"
-            android:layout_height="49dp"
-            android:text="Pause"
-            app:layout_constraintEnd_toStartOf="@+id/editTextTextPersonName3"
+            android:layout_width="161dp"
+            android:layout_height="46dp"
+
+            android:text="Arbeitszeit:"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toTopOf="@+id/Pausenzeit"
+            app:layout_constraintEnd_toStartOf="@+id/arbeitszeit_edit"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="263dp" />
+            app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="410dp"
+            android:layout_height="38dp"
+            android:text="Arbeitstag bearbeiten"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toTopOf="@+id/datum_edit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="161dp"
+            android:layout_height="46dp"
+
+            android:text="Datum: "
+            android:textSize="24sp"
+            app:layout_constraintBottom_toTopOf="@+id/textView9"
+            app:layout_constraintEnd_toStartOf="@+id/datum_edit"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName3"
+            android:id="@+id/datum_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="21dp"
+            android:ems="10"
+            android:inputType="date"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/textView10"
+            app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+        <EditText
+            android:id="@+id/kommentar_edit"
+            android:layout_width="376dp"
+            android:layout_height="201dp"
+            android:layout_marginBottom="11dp"
+            android:ems="10"
+            android:gravity="start|top"
+            android:inputType="textMultiLine"
+            app:layout_constraintBottom_toTopOf="@+id/speichern_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/speichern_button"
+            android:layout_width="376dp"
+            android:layout_height="52dp"
+            android:layout_marginBottom="30dp"
+            android:onClick="saveAllAttributes"
+            android:text="Speichern"
+            app:layout_constraintBottom_toTopOf="@+id/löschen_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Switch
+            android:id="@+id/switch1_toogle_löschen"
+            android:layout_width="134dp"
+            android:layout_height="53dp"
+            android:layout_marginBottom="14dp"
+            android:onClick="activedSwitch"
+            android:text="Löschen"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/löschen_button"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/löschen_button"
             android:layout_width="120dp"
-            android:layout_height="51dp"
+            android:layout_height="55dp"
+            android:layout_marginBottom="13dp"
+            android:onClick="deleteWorkDay"
+            android:text="Löschen"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/switch1_toogle_löschen" />
+
+        <EditText
+            android:id="@+id/arbeitszeit_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:ems="10"
             android:inputType="textPersonName"
             android:text="Name"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/textView9"
-            tools:layout_editor_absoluteY="263dp" />
+            app:layout_constraintTop_toBottomOf="@+id/datum_edit" />
 
-        <TextView
-            android:id="@+id/textView8"
-            android:layout_width="235dp"
-            android:layout_height="49dp"
-            android:text="Arbeitszeit"
-            app:layout_constraintEnd_toStartOf="@+id/editTextTextPersonName2"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="181dp" />
-
-        <EditText
-            android:id="@+id/editTextTextPersonName2"
-            android:layout_width="120dp"
-            android:layout_height="51dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Name"
-            app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName3"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/textView8"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
-
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="358dp"
-            android:layout_height="50dp"
-            android:text="Bearbeite den Arbeitstag"
-            android:textSize="24sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="26dp" />
-
-        <TextView
-            android:id="@+id/textView7"
-            android:layout_width="235dp"
-            android:layout_height="49dp"
-            android:text="Datum"
-            app:layout_constraintEnd_toStartOf="@+id/editTextTextPersonName"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="100dp" />
-
-        <EditText
-            android:id="@+id/editTextTextPersonName"
-            android:layout_width="120dp"
-            android:layout_height="51dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Name"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/textView7"
-            tools:layout_editor_absoluteY="100dp" />
-
-        <Button
-            android:id="@+id/button"
-            android:layout_width="358dp"
-            android:layout_height="52dp"
-            android:text="Speichern"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="405dp" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
