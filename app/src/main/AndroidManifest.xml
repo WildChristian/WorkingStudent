@@ -9,10 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.WorkingStudent">
+        <activity android:name=".ui.überDieApp.UeberDieApp"></activity>
         <activity
             android:name=".ui.edittime.editTime"
             android:label="@string/title_activity_edit_time"
-            android:theme="@style/Theme.WorkingStudent.NoActionBar"></activity>
+            android:theme="@style/Theme.WorkingStudent.NoActionBar" />
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name">
