@@ -1,13 +1,16 @@
 package com.example.workingstudent.ui.home;
 
+import android.app.Activity;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.os.Handler;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -15,6 +18,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.workingstudent.MainActivity;
 import com.example.workingstudent.R;
 
@@ -130,8 +136,9 @@ public class HomeFragment extends Fragment {
             listForView.add("Deine Arbeitszeit betrug: " + workdays.get(i).getM_workingTime() + " : " + workdays.get(i).getM_breakTime() + "\n" +  workdays.get(i).getM_date() + "\n" +  workdays.get(i).getM_notizen());
         }
 
-        ArrayAdapter<String> mArrayAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, listForView);
-        listView.setAdapter(mArrayAdapter);
+
+        MyListAdapter adapter=new MyListAdapter(getActivity(), listForView);
+        listView.setAdapter(adapter);
 
 
     }
@@ -302,6 +309,20 @@ public class HomeFragment extends Fragment {
                 startButton.setText("START!");
                 timerIsActive =false;
                 breakIsActive = false;
+
+            }
+        });
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+                try{
+                    Log.i("adsa",listForView.get(position));
+                }catch(Exception e){
+
+                }
+
 
             }
         });
